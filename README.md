@@ -5,7 +5,9 @@ This repository contains the solution for the Native Mobile Developer technical 
 The project is implemented for both platforms:
 
 - `android/`: native Android app
+android link : https://github.com/AsmaaHassenIbrahem/MoodleAndroid
 - `ios/`: native iOS app
+ios link : https://github.com/AsmaaHassenIbrahem/Moodle-iOS
 
 ## Assignment Scope
 
@@ -81,3 +83,70 @@ android/
 1. Open `android/` in Android Studio
 2. Let Gradle sync
 3. Run the `MoodleAndroid` app on an emulator or device
+
+## iOS
+
+### Technologies
+
+- Swift
+- SwiftUI
+- MVVM
+- Swinject
+- Moya
+- `async/await`
+- `ObservableObject`
+- `NavigationStack`
+
+### Structure
+
+```text
+ios/MoodleCandidate/
+  appNavigation/
+  di/
+  feature/
+    courses/
+    courseDetails/
+    grades/
+  shared/
+    config/
+    constants/
+    network/
+    session/
+    ui/
+```
+
+### Notes
+
+- The iOS app follows the same feature-based structure as Android
+- Each feature owns its own model, repository, view model, and screen
+- Shared app concerns are grouped under `shared/`
+- Dependency injection is handled with Swinject
+- Networking is implemented with Moya for a Retrofit-like API layer
+
+### Setup
+
+1. Open the `ios/` directory in Xcode
+2. Select the `Moodle-iOS` scheme
+3. Choose an iPhone simulator or connected device
+4. Build and run
+
+Optional:
+
+- `ios/project.yml` is included if you want to regenerate the Xcode project with XcodeGen
+
+## Architecture Summary
+
+Both apps use the same high-level approach:
+
+- MVVM
+- Feature-based folder structure
+- Repository layer between API and presentation
+- Loading and error state handling
+- Clear separation of shared concerns from feature-specific concerns
+
+## Implementation Notes
+
+- Progress is treated as optional because Moodle may not always return it
+- Course image loading falls back when a direct image field is unavailable
+- HTML-rich content is normalized before display where needed
+- The apps are intentionally scoped to the assignment requirements and keep the UI clean and simple
